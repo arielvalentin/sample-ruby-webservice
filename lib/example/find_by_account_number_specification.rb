@@ -1,5 +1,7 @@
 module Example
   class FindByAccountNumberSpecification
+    include Equalizer.new(:account_number)
+
     attr_reader :account_number
     def initialize(account_number)
       @account_number = account_number

@@ -14,6 +14,7 @@ module Example
       end
     end
 
+    private
     def accounts_service
       container = env[Example::ContainerKey]
       container[:accounts_service]

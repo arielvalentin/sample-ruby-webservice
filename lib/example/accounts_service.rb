@@ -1,7 +1,5 @@
 module Example
   class AccountsService
-    attr_reader :repository
-    
     def initialize(repository)
       @repository = repository
     end
@@ -10,6 +8,8 @@ module Example
       repository.find(FindByAccountNumberSpecification.new(account_number)).first
     end
 
+    private 
+    attr_reader :repository
   end
 
 end
