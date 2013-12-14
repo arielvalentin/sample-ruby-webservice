@@ -1,14 +1,18 @@
+require 'set'
 module Example
   class AccountsRepository
     def initialize
-      @accounts = [Account.new(number: '12345', name: 'My First Account'), Account.new(number: '54321', name: 'Another Account')]
+      @accounts = Set[Account.new(number: '12345', name: 'My First Account'), Account.new(number: '54321', name: 'Another Account')]
     end
     
-    def find(accounts_specification)
-      accounts.select{ |account| accounts_specification.satisfied_by?(account) }
+    def find(specification)
+      accounts.select{ |account| specification.satisfied_by?(account) }
     end
 
+    def save(*accounts_to_save)
+      accounts.merge(accounts_to_save)
+    end
     private 
-    attr_reader :accounts
+    attr_accessor :accounts    
   end
 end
