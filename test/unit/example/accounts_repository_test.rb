@@ -36,3 +36,5 @@ class Example::AccountsRepositoryTest < Test::Unit::TestCase
     end
   end
 end
+
+
