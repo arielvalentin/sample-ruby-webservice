@@ -1,5 +1,5 @@
-require_relative '../test_helper'
-require_relative '../../app/example'
+require_relative '../../test_helper'
+require_relative '../../../app/example'
 require 'rack/test'
 
 class Example::WebTest < Test::Unit::TestCase
