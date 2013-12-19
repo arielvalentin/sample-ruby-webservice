@@ -1,5 +1,5 @@
 # sample Gemfile
-source "https://rubygems.org"
+source 'https://rubygems.org'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-contrib'
@@ -11,4 +11,6 @@ group :test do
   gem 'shoulda-context'
   gem 'flexmock'
   gem 'factory_girl'
+  gem 'webmock'
+  gem 'sinatra-example-client', path: 'sinatra-example-client'
 end
