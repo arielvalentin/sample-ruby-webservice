@@ -46,7 +46,7 @@ class Example::WebTest < Test::Unit::TestCase
         mock.should_receive(:create).with(Example::CreateAccountCommand.new(name: 'My Account')).and_return(account)
       end
       
-      post '/', {name: 'My Account'}, {Example::ContainerKey => {accounts_service: service}}
+      post '/', {name: 'My Account'}.to_json, {Example::ContainerKey => {accounts_service: service, 'Content-Type' => 'application/json'}}
       assert_equal(201, last_response.status, last_response.body)
       actual_account = Example::Account.new(JSON.parse(last_response.body, symbolize_names: true))
       
