@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'sinatra/example/client/version'
+require 'example/client/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "sinatra-example-client"
-  spec.version       = Sinatra::Example::Client::VERSION
+  spec.name          = "example-client"
+  spec.version       = Example::Client::VERSION
   spec.authors       = ["arielvalentin"]
   spec.email         = ["ariel@arielvalentin.com"]
-  spec.description   = %q{This is an example project I put together for Dan Wellman. I hope you like it}
-  spec.summary       = %q{This is just an example client for my webservice}
+  spec.description   = %q{This is a sample client}
+  spec.summary       = %q{I already said this is a sample client}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -18,7 +18,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'httpclient'
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_dependency 'equalizer'  
+  spec.add_dependency 'addressable'  
+  spec.add_dependency 'httpclient'
 end

@@ -12,5 +12,5 @@ group :test do
   gem 'flexmock'
   gem 'factory_girl'
   gem 'webmock'
-  gem 'sinatra-example-client', path: 'sinatra-example-client'
+  gem 'example-client', path: 'example-client'
 end

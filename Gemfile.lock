@@ -1,7 +1,9 @@
 PATH
-  remote: sinatra-example-client
+  remote: example-client
   specs:
-    sinatra-example-client (0.0.1)
+    example-client (0.0.1)
+      addressable
+      equalizer
       httpclient
 
 GEM
@@ -20,7 +22,7 @@ GEM
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
     dim (1.2.7)
-    equalizer (0.0.8)
+    equalizer (0.0.9)
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
     flexmock (1.3.2)
@@ -64,6 +66,7 @@ PLATFORMS
 DEPENDENCIES
   dim
   equalizer
+  example-client!
   factory_girl
   flexmock
   rack-test
@@ -71,5 +74,4 @@ DEPENDENCIES
   shoulda-context
   sinatra
   sinatra-contrib
-  sinatra-example-client!
   webmock

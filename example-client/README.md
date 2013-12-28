@@ -1,4 +1,4 @@
-# Sinatra::Example::Client
+# Example::Client
 
 TODO: Write a gem description
 
@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'sinatra-example-client'
+    gem 'example-client'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install sinatra-example-client
+    $ gem install example-client
 
 ## Usage
 

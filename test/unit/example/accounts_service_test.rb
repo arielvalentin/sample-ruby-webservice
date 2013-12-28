@@ -1,5 +1,5 @@
-require_relative '../../test_helper'
 require 'example'
+require_relative '../../test_helper'
 
 class Example::AccountsServiceTest < Test::Unit::TestCase
   include FactoryGirl::Syntax::Methods
