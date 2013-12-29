@@ -1,7 +1,7 @@
-require 'example'
 require_relative '../../test_helper'
+require 'example'
 
-class Example::AccountsServiceTest < Test::Unit::TestCase
+class Example::AccountsQueryServiceTest < Test::Unit::TestCase
   include FactoryGirl::Syntax::Methods
   include FlexMock::TestCase
   include FlexMock::ArgumentTypes
@@ -14,7 +14,7 @@ class Example::AccountsServiceTest < Test::Unit::TestCase
         mock.should_receive(:find).with(Example::FindByAccountNumberSpecification.new(account.number)).and_return([account])
       end
  
-      service = Example::AccountsService.new(repository)
+      service = Example::AccountsQueryService.new(repository)
       assert_equal(account, service.find_by_account_number(account.number))
     end
 
@@ -24,7 +24,7 @@ class Example::AccountsServiceTest < Test::Unit::TestCase
         mock.should_receive(:find).with(Example::FindByAccountNumberSpecification.new(number)).and_return([])
       end
  
-      service = Example::AccountsService.new(repository)
+      service = Example::AccountsQueryService.new(repository)
       refute(service.find_by_account_number(number))
     end
   end

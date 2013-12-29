@@ -1,7 +1,5 @@
-require 'securerandom'
-
 module Example
-  class AccountsService
+  class AccountsQueryService
     def initialize(repository)
       @repository = repository
     end

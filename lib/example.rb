@@ -5,6 +5,6 @@ require_relative 'example/id_generator'
 require_relative 'example/create_account_handler'
 require_relative 'example/find_by_account_number_specification'
 require_relative 'example/accounts_repository'
-require_relative 'example/accounts_service'
+require_relative 'example/accounts_query_service'
 require_relative 'example/container'
 

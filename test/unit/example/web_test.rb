@@ -14,11 +14,11 @@ class Example::WebTest < Test::Unit::TestCase
   context 'retrieving accounts' do
     should 'provide respond with error when account is missing' do
       number = '987654321'
-      service = flexmock(:on, Example::AccountsService) do |mock|
+      service = flexmock(:on, Example::AccountsQueryService) do |mock|
         mock.should_receive(:find_by_account_number).with(number).and_return(nil)
       end
       
-      get "/#{number}", {}, {Example::ContainerKey => {accounts_service: service}}
+      get "/#{number}", {}, {Example::ContainerKey => {accounts_query_service: service}}
       refute(last_response.ok?)
       response = JSON.parse(last_response.body, symbolize_names: true)
       
@@ -27,11 +27,11 @@ class Example::WebTest < Test::Unit::TestCase
     
     should 'provide access to accounts by number' do
       account = build(:account, number: '75637')
-      service = flexmock(:on, Example::AccountsService) do |mock|
+      service = flexmock(:on, Example::AccountsQueryService) do |mock|
         mock.should_receive(:find_by_account_number).with(account.number).and_return(account)
       end
       
-      get "/#{account.number}", {}, {Example::ContainerKey => {accounts_service: service}}
+      get "/#{account.number}", {}, {Example::ContainerKey => {accounts_query_service: service}}
       assert(last_response.ok?)
       actual_account = Example::Account.new(JSON.parse(last_response.body, symbolize_names: true))
       

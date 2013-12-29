@@ -9,9 +9,10 @@ module Example
 
     def initialize
       @application_container = Dim::Container.new
-      register(:accounts_repository){ AccountsRepository.new }
-      register(:accounts_service){ |c| AccountsService.new(c.accounts_repository) }
+      
       register(:id_generator){ IDGenerator.new }
+      register(:accounts_repository){ AccountsRepository.new }
+      register(:accounts_query_service){ |c| AccountsQueryService.new(c.accounts_repository) }
       register(:create_account_handler){ |c| CreateAccountHandler.new(c.accounts_repository,c.id_generator)  }
     end
         

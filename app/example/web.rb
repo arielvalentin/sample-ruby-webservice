@@ -9,7 +9,7 @@ module Example
     NotFound = {message: 'Not Found'}
 
     get '/:account_number' do
-      if account = accounts_service.find_by_account_number(params[:account_number])
+      if account = query_service.find_by_account_number(params[:account_number])
         json(name: account.name, number: account.number)
       else 
         halt(404, json(NotFound))
@@ -29,9 +29,9 @@ module Example
       container[:create_account_handler]
     end
 
-    def accounts_service
+    def query_service
       container = env[Example::ContainerKey]
-      container[:accounts_service]
+      container[:accounts_query_service]
     end
   end
 end
