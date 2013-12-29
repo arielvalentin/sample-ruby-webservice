@@ -55,6 +55,7 @@ GEM
       atomic
     tilt (1.4.1)
     tzinfo (0.3.38)
+    uuidtools (2.1.4)
     webmock (1.16.1)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
@@ -74,4 +75,5 @@ DEPENDENCIES
   shoulda-context
   sinatra
   sinatra-contrib
+  uuidtools
   webmock

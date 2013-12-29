@@ -5,7 +5,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'dim'
 gem 'equalizer'
-
+gem 'uuidtools'
 group :test do
   gem 'rack-test'
   gem 'shoulda-context'
