@@ -10,17 +10,7 @@ module Example
       repository.find(FindByAccountNumberSpecification.new(account_number)).first
     end
 
-    def create(command)
-      build_account(command).tap do |account|
-        repository.save(account)
-      end
-    end
-
     private 
     attr_reader :repository
-
-    def build_account(command)
-      Example::Account.new(name: command.name, number: SecureRandom.uuid)
-    end
   end
 end

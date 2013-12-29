@@ -19,11 +19,16 @@ module Example
     post '/' do
       account_params = JSON.parse(request.body.read, symbolize_names: true)
       command = Example::CreateAccountCommand.new(account_params)
-      account = accounts_service.create(command)
+      account = create_account_handler.call(command)
       [201, json(name: account.name, number: account.number)]
     end
 
     private
+    def create_account_handler
+      container = env[Example::ContainerKey]
+      container[:create_account_handler]
+    end
+
     def accounts_service
       container = env[Example::ContainerKey]
       container[:accounts_service]

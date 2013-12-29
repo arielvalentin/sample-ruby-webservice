@@ -42,11 +42,11 @@ class Example::WebTest < Test::Unit::TestCase
   context 'creating new accounts' do
     should 'allow creation of new accounts' do
       account = build(:account, name: 'My Account')
-      service = flexmock(:on, Example::AccountsService) do |mock|
-        mock.should_receive(:create).with(Example::CreateAccountCommand.new(name: 'My Account')).and_return(account)
+      handler = flexmock(:on, Example::CreateAccountHandler) do |mock|
+        mock.should_receive(:call).with(Example::CreateAccountCommand.new(name: 'My Account')).and_return(account)
       end
       
-      post '/', {name: 'My Account'}.to_json, {Example::ContainerKey => {accounts_service: service, 'Content-Type' => 'application/json'}}
+      post '/', {name: 'My Account'}.to_json, {Example::ContainerKey => {create_account_handler: handler, 'Content-Type' => 'application/json'}}
       assert_equal(201, last_response.status, last_response.body)
       actual_account = Example::Account.new(JSON.parse(last_response.body, symbolize_names: true))
       

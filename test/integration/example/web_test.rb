@@ -22,10 +22,10 @@ class Example::WebTest < Test::Unit::TestCase
     
     should 'provide access to accounts by number' do
       account_params = {name: 'My Account'}
-
+      
       gateway = Example::Client::AccountsGateway.new(base_uri: 'http://www.example.com')
       created_account = gateway.create(account_params)
-
+      
       retrieved_account = gateway.find_by_number(created_account.number)
       assert(created_account.number)            
       assert_equal(retrieved_account, created_account) 

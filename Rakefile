@@ -20,3 +20,5 @@ end
 
 desc 'executes all unit and integration tests'
 task :test => %w(test:unit test:integration)
+
+task :default => :test

@@ -28,15 +28,4 @@ class Example::AccountsServiceTest < Test::Unit::TestCase
       refute(service.find_by_account_number(number))
     end
   end
-  context 'Storing accounts' do
-    should 'create a new account' do
-      repository = flexmock(:on, Example::AccountsRepository) do |mock|
-        mock.should_receive(:save).with(on{|account| account.name == 'Test Account' && account.number })
-      end
-      service = Example::AccountsService.new(repository)
-      account = service.create(Example::CreateAccountCommand.new(name:'Test Account'))
-      assert_equal('Test Account', account.name)
-      assert(account.number)
-    end
-  end
 end
