@@ -1,4 +1,4 @@
-sinatra-example
+sample-ruby-webservice
 ===============
 
 I put this example together to demonstrate how I write sinatra apps.
