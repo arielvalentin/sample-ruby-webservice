@@ -16,9 +16,11 @@ module Example
       
       def find_by_number(number)
         response = http_client.get("#{base_uri}/#{number}")
-        Account.new(JSON.parse(response.body, symbolize_names: true))
+        if response.ok?
+          Account.new(JSON.parse(response.body, symbolize_names: true))
+        end
       end
-
+      
       private 
       attr_reader :base_uri, :http_client
     end

@@ -1,5 +1,7 @@
 module Example
   class DependencyInjectionMiddleware
+    attr_reader :container
+    attr_reader :app
     def initialize(app,container)
       @app = app
       @container = container
