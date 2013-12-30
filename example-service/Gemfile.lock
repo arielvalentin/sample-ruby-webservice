@@ -1,5 +1,5 @@
 PATH
-  remote: example-client
+  remote: ../example-client
   specs:
     example-client (0.0.1)
       addressable
