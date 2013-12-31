@@ -1,6 +1,7 @@
+# encoding: UTF-8
 require_relative '../../test_helper'
 require 'example'
-
+#
 class Example::CreateAccountHandlerTest < Test::Unit::TestCase
   include FactoryGirl::Syntax::Methods
   include FlexMock::TestCase
@@ -19,7 +20,8 @@ class Example::CreateAccountHandlerTest < Test::Unit::TestCase
       end
 
       service = Example::CreateAccountHandler.new(repository, id_generator)
-      actual = service.call(Example::CreateAccountCommand.new(name:'Test Account'))
+      command = Example::CreateAccountCommand.new(name: 'Test Account')
+      actual = service.call(command)
       assert_equal(expected, actual)
     end
   end

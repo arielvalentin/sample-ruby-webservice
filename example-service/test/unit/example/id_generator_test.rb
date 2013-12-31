@@ -1,6 +1,8 @@
+# encoding: UTF-8
 require_relative '../../test_helper'
 require 'example'
 
+#
 class Example::IDGeneratorTest < Test::Unit::TestCase
   include FactoryGirl::Syntax::Methods
   include FlexMock::TestCase
@@ -25,5 +27,4 @@ class Example::IDGeneratorTest < Test::Unit::TestCase
       id_generator.create(' ')
     end
   end
-
 end

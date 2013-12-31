@@ -1,4 +1,6 @@
+# encoding: UTF-8
 module Example
+  #
   class CreateAccountHandler
     def initialize(repository, id_generator)
       @repository = repository
@@ -11,12 +13,14 @@ module Example
       end
     end
 
-    private 
+    private
+
     attr_reader :repository
     attr_reader :id_generator
 
     def build_account(command)
-      Example::Account.new(name: command.name, number: id_generator.create(command.name))
+      number = id_generator.create(command.name)
+      Example::Account.new(name: command.name, number: number)
     end
   end
 end

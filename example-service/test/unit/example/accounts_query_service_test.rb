@@ -11,7 +11,7 @@ class Example::AccountsQueryServiceTest < Test::Unit::TestCase
       account = build(:account, number: '8675309')
 
       repository = flexmock(:on, Example::AccountsRepository) do |mock|
-        mock.should_receive(:find).with(Example::FindByAccountNumberSpecification.new(account.number)).and_return([account])
+        mock.should_receive(:find).with(Example::ByAccountNumber.new(account.number)).and_return([account])
       end
  
       service = Example::AccountsQueryService.new(repository)
@@ -21,7 +21,7 @@ class Example::AccountsQueryServiceTest < Test::Unit::TestCase
     should 'represent missing accounts as a nil value' do
       number = '8675309'
       repository = flexmock(:on, Example::AccountsRepository) do |mock|
-        mock.should_receive(:find).with(Example::FindByAccountNumberSpecification.new(number)).and_return([])
+        mock.should_receive(:find).with(Example::ByAccountNumber.new(number)).and_return([])
       end
  
       service = Example::AccountsQueryService.new(repository)
